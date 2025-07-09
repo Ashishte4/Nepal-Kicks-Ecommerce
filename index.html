@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NepalKicks - Premium Sneakers & Streetwear</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#111111',
+                        secondary: '#757575',
+                        accent: '#ff6b35',
+                        nepal: '#dc143c'
+                    }
+                }
+            }
+        }
+    </script>
+    
+</head>
+<body class="font-inter bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto">
+            <!-- Top Bar -->
+            <div class="hidden md:flex justify-between items-center py-2 px-6 text-xs border-b border-gray-200 dark:border-gray-700">
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Find a Store</a>
+                    <span class="text-gray-300">|</span>
+                    <a href="contact.html" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Help</a>
+                    <span class="text-gray-300">|</span>
+                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Join Us</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" id="authBtn">Sign In</button>
+                </div>
+            </div>
+            
+            <!-- Main Navigation -->
+            <nav class="flex items-center justify-between px-6 py-4">
+                <div class="flex items-center space-x-12">
+                    <!-- Logo -->
+                    <a href="index.html" class="flex items-center">
+                        <div class="text-2xl font-black">
+                            <span class="text-gray-900 dark:text-white">Nepal</span><span class="text-accent">Kicks</span>
+                        </div>
+                    </a>
+                    
+                    <!-- Main Menu -->
+                    <ul class="hidden lg:flex items-center space-x-8">
+                        <li><a href="shop.html?category=new" class="font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">New & Featured</a></li>
+                        <li><a href="shop.html?category=men" class="font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Men</a></li>
+                        <li><a href="shop.html?category=women" class="font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Women</a></li>
+                        <li><a href="shop.html?category=kids" class="font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Kids</a></li>
+                        <li><a href="shop.html" class="font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Sale</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Right Side -->
+                <div class="flex items-center space-x-4">
+                    <!-- Search -->
+                    <div class="hidden md:block relative">
+                        <input type="text" placeholder="Search" 
+                               class="w-44 bg-gray-100 dark:bg-gray-800 border-0 rounded-full py-2 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-accent/20 focus:w-64 transition-all duration-300">
+                        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"></i>
+                    </div>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors" id="themeToggle">
+                        <i class="fas fa-moon dark:hidden text-xl"></i>
+                        <i class="fas fa-sun hidden dark:block text-xl"></i>
+                    </button>
+                    
+                    <!-- Icons -->
+                    <button class="relative p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors" id="wishlistBtn">
+                        <i class="far fa-heart text-xl"></i>
+                        <span class="wishlist-count hidden absolute -top-1 -right-1 bg-accent text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </button>
+                    
+                    <a href="cart.html" class="relative p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors">
+                        <i class="fas fa-shopping-bag text-xl"></i>
+                        <span class="cart-count absolute -top-1 -right-1 bg-accent text-white text-xs rounded-full w-5 h-5 flex items-center justify-center" id="cartCount">0</span>
+                    </a>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button class="lg:hidden p-2" id="mobileMenuBtn">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </nav>
+            
+            <!-- Mobile Menu -->
+            <div class="lg:hidden hidden" id="mobileMenu">
+                <div class="px-6 py-4 border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
+                    <ul class="space-y-4">
+                        <li><a href="shop.html?category=new" class="block py-2 font-medium text-gray-700 dark:text-gray-300">New & Featured</a></li>
+                        <li><a href="shop.html?category=men" class="block py-2 font-medium text-gray-700 dark:text-gray-300">Men</a></li>
+                        <li><a href="shop.html?category=women" class="block py-2 font-medium text-gray-700 dark:text-gray-300">Women</a></li>
+                        <li><a href="shop.html?category=kids" class="block py-2 font-medium text-gray-700 dark:text-gray-300">Kids</a></li>
+                        <li><a href="shop.html" class="block py-2 font-medium text-gray-700 dark:text-gray-300">Sale</a></li>
+                    </ul>
+                    <div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+                        <input type="text" placeholder="Search" 
+                               class="w-full bg-gray-100 dark:bg-gray-800 border-0 rounded-full py-2 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-accent/20">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="Images/coverpage.jpg" 
+                 alt="Hero Background" 
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/40"></div>
+        </div>
+        
+        <div class="relative z-10 text-center text-white max-w-4xl mx-auto px-6">
+            <h1 class="text-6xl md:text-8xl lg:text-9xl font-black mb-6 tracking-tight">
+                <span style="color: white;">Nepal</span><span style="color: #ff6b35;">Kicks</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 font-light max-w-2xl mx-auto">
+                Bringing street culture to the peaks of Nepal
+            </p>
+            <a href="shop.html" class="inline-block bg-white text-black px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors text-lg">
+                Shop Now
+            </a>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Featured Section -->
+    <section class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black mb-4 text-gray-900 dark:text-white">Featured</h2>
+                <p class="text-gray-600 dark:text-gray-400 text-lg">The latest drops from Nepal's streets</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-16">
+                <!-- Featured Product 1 -->
+                <div class="group cursor-pointer product-card bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg" onclick="window.location.href='product.html?id=1'">
+                    <div class="relative overflow-hidden">
+                        <img src="Images/nike 370.jpg" 
+                             alt="Air Max 270" 
+                             class="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Air Max 270</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">The future of Air Max cushioning</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xl font-semibold text-gray-900 dark:text-white">Rs. 21,500</span>
+                            <button class="bg-gray-900 dark:bg-white dark:text-gray-900 text-white px-6 py-2 rounded-full hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors">
+                                Shop Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Featured Product 2 -->
+                <div class="group cursor-pointer product-card bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg" onclick="window.location.href='product.html?id=2'">
+                    <div class="relative overflow-hidden">
+                        <img src="Images/air jordan 1 mid.jpg" 
+                             alt="Jordan 1 Mid" 
+                             class="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Air Jordan 1 Mid</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">Iconic style meets modern comfort</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xl font-semibold text-gray-900 dark:text-white">Rs. 25,000</span>
+                            <button class="bg-gray-900 dark:bg-white dark:text-gray-900 text-white px-6 py-2 rounded-full hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors">
+                                Shop Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Grid -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Men's Category -->
+                <div class="group cursor-pointer" onclick="window.location.href='shop.html?category=men'">
+                    <div class="relative overflow-hidden rounded-lg">
+                        <img src="Images/MENs.jpg" 
+                             alt="Men's Collection" 
+                             class="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h3 class="text-3xl font-bold mb-2">Men</h3>
+                            <button class="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+                                Shop
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Women's Category -->
+                <div class="group cursor-pointer" onclick="window.location.href='shop.html?category=women'">
+                    <div class="relative overflow-hidden rounded-lg">
+                        <img src="Images/women.jpg" 
+                             alt="Women's Collection" 
+                             class="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h3 class="text-3xl font-bold mb-2">Women</h3>
+                            <button class="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+                                Shop
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Kids Category -->
+                <div class="group cursor-pointer" onclick="window.location.href='shop.html?category=kids'">
+                    <div class="relative overflow-hidden rounded-lg">
+                        <img src="Images/kid-having-fun-outdoors.jpg" 
+                             alt="Kids Collection" 
+                             class="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h3 class="text-3xl font-bold mb-2">Kids</h3>
+                            <button class="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+                                Shop
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Section -->
+    <section class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center mb-12">
+                <h2 class="text-4xl font-black text-gray-900 dark:text-white">Trending</h2>
+                <a href="shop.html" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors font-medium">
+                    Shop All <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8" id="trendingProducts">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-20 bg-gray-900 text-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-black mb-6">Stay Updated</h2>
+            <p class="text-xl mb-8 text-gray-300">
+                Be the first to know about new releases, exclusive offers, and events
+            </p>
+            <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto" id="newsletterForm">
+                <input type="email" placeholder="Email address" required
+                       class="flex-1 px-6 py-4 rounded-full text-black focus:outline-none focus:ring-2 focus:ring-white/50">
+                <button type="submit" 
+                        class="bg-white text-black px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+                    Sign Up
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <!-- Find a Store -->
+                <div>
+                    <h4 class="font-bold mb-6 text-lg">Feedbacks and Improvement</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Send Us Feedback</a></li>
+                       
+                    </ul>
+                </div>
+                
+                <!-- Get Help -->
+                <div>
+                    <h4 class="font-bold mb-6 text-lg">Get Help</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- About NepalKicks -->
+                <div>
+                    <h4 class="font-bold mb-6 text-lg">About NepalKicks</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="about.html" class="hover:text-white transition-colors">News</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Social -->
+                <div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-twitter text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-facebook text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-youtube text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-instagram text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+                <div class="flex flex-wrap items-center gap-6 mb-4 md:mb-0">
+                    <span>&copy; 2024 NepalKicks, Inc. All Rights Reserved</span>
+                    <a href="#" class="hover:text-white transition-colors">Guides</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Sale</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Use</a>
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                </div>
+                <div class="text-gray-400">
+                    <i class="fas fa-map-marker-alt mr-2"></i>
+                    Nepal
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Auth Modal -->
+    <div class="modal-overlay fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden" id="authModal">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white dark:bg-gray-800 rounded-lg p-8 max-w-md w-full">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Your Account For Everything NepalKicks</h3>
+                    <button class="modal-close text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <form class="space-y-4" id="authForm">
+                    <input type="email" placeholder="Email address" required 
+                           class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-accent/20 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                    <input type="password" placeholder="Password" required 
+                           class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-accent/20 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                    
+                    <div class="flex items-center justify-between text-sm">
+                        <label class="flex items-center text-gray-600 dark:text-gray-400">
+                            <input type="checkbox" class="mr-2">
+                            <span>Keep me signed in</span>
+                        </label>
+                        <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-accent">Forgotten your password?</a>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-gray-900 dark:bg-white dark:text-gray-900 text-white py-3 rounded font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors">
+                        SIGN IN
+                    </button>
+                    
+                    <div class="text-center text-sm text-gray-600 dark:text-gray-400">
+                        Not a Member? <a href="#" class="text-accent hover:underline font-semibold">Join Us.</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<body class="font-inter bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+    <script type="module" src="js/script.js" defer></script>
+</body>
+</html>

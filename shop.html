@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - NepalKicks</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="css/style.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#111111',
+                        secondary: '#757575',
+                        accent: '#ff6b35',
+                        nepal: '#dc143c'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+    <header class="sticky top-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto">
+<div class="hidden md:flex justify-between items-center py-2 px-6 text-xs border-b border-gray-200 dark:border-gray-700">
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Find a Store</a>
+                    <span class="text-gray-300">|</span>
+                    <a href="contact.html" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Help</a>
+                    <span class="text-gray-300">|</span>
+                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Join Us</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" id="authBtn">Sign In</button>
+                </div>
+            </div>
+            <nav class="flex items-center justify-between px-6 py-4">
+                <div class="flex items-center space-x-12">
+                    <!-- Logo -->
+                    <a href="index.html" class="flex items-center">
+                        <div class="text-2xl font-black">
+                            <span class="text-gray-900 dark:text-white">Nepal</span><span class="text-accent">Kicks</span>
+                        </div>
+                    </a>
+                    
+                    <!-- Main Menu  -->
+                    <ul class="hidden lg:flex items-center space-x-8">
+                        <li><a href="shop.html?category=new" class="font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">New & Featured</a></li>
+                        <li><a href="shop.html?category=men" class="font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Men</a></li>
+                        <li><a href="shop.html?category=women" class="font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Women</a></li>
+                        <li><a href="shop.html?category=kids" class="font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Kids</a></li>
+                        <li><a href="shop.html" class="font-medium text-accent border-b-2 border-accent">Sale</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Right Side -->
+                <div class="flex items-center space-x-4">
+                    <!-- Search -->
+                    <div class="hidden md:block relative">
+                        <input type="text" placeholder="Search" id="searchInput"
+                               class="w-44 bg-gray-100 dark:bg-gray-800 border-0 rounded-full py-2 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-accent/20 focus:w-64 transition-all duration-300">
+                        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"></i>
+                    </div>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors" id="themeToggle">
+                        <i class="fas fa-moon dark:hidden text-xl"></i>
+                        <i class="fas fa-sun hidden dark:block text-xl"></i>
+                    </button>
+                    
+                    <!-- Icons -->
+                    <button class="relative p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors" id="wishlistBtn">
+                        <i class="far fa-heart text-xl"></i>
+                        <span class="wishlist-count hidden absolute -top-1 -right-1 bg-accent text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </button>
+                    
+                    <a href="cart.html" class="relative p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors">
+                        <i class="fas fa-shopping-bag text-xl"></i>
+                        <span class="cart-count absolute -top-1 -right-1 bg-accent text-white text-xs rounded-full w-5 h-5 flex items-center justify-center" id="cartCount">0</span>
+                    </a>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button class="lg:hidden p-2" id="mobileMenuBtn">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </nav>
+            
+            <!-- Mobile Menu -->
+            <div class="lg:hidden hidden" id="mobileMenu">
+                <div class="px-6 py-4 border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
+                    <ul class="space-y-4">
+                        <li><a href="shop.html?category=new" class="block py-2 font-medium text-gray-700 dark:text-gray-300">New & Featured</a></li>
+                        <li><a href="shop.html?category=men" class="block py-2 font-medium text-gray-700 dark:text-gray-300">Men</a></li>
+                        <li><a href="shop.html?category=women" class="block py-2 font-medium text-gray-700 dark:text-gray-300">Women</a></li>
+                        <li><a href="shop.html?category=kids" class="block py-2 font-medium text-gray-700 dark:text-gray-300">Kids</a></li>
+                        <li><a href="shop.html" class="block py-2 font-medium text-gray-700 dark:text-gray-300">Sale</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <nav class="text-sm">
+                <a href="index.html" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">Home</a>
+                <span class="mx-2 text-gray-300">/</span>
+                <span class="text-gray-900 dark:text-white font-medium">Shop</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Shop Content -->
+    <div class="max-w-7xl mx-auto px-6 py-8">
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Filters Sidebar -->
+            <aside class="lg:w-64 flex-shrink-0">
+                <div class="sticky top-32 bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
+                    <h2 class="text-xl font-bold mb-6 text-gray-900 dark:text-white">Filter</h2>
+                    
+                    <!-- Categories -->
+                    <div class="mb-8">
+                        <h3 class="font-semibold mb-4 text-gray-900 dark:text-white">Categories</h3>
+                        <div class="space-y-3">
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" name="category" value="shoes" class="mr-3 rounded">
+                                <span class="text-sm text-gray-700 dark:text-gray-300">Shoes</span>
+                            </label>
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" name="category" value="clothing" class="mr-3 rounded">
+                                <span class="text-sm text-gray-700 dark:text-gray-300">Clothing</span>
+                            </label>
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" name="category" value="accessories" class="mr-3 rounded">
+                                <span class="text-sm text-gray-700 dark:text-gray-300">Accessories</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Gender -->
+                    <div class="mb-8">
+                        <h3 class="font-semibold mb-4 text-gray-900 dark:text-white">Gender</h3>
+                        <div class="space-y-3">
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" name="gender" value="men" class="mr-3 rounded">
+                                <span class="text-sm text-gray-700 dark:text-gray-300">Men</span>
+                            </label>
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" name="gender" value="women" class="mr-3 rounded">
+                                <span class="text-sm text-gray-700 dark:text-gray-300">Women</span>
+                            </label>
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" name="gender" value="kids" class="mr-3 rounded">
+                                <span class="text-sm text-gray-700 dark:text-gray-300">Kids</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Price Range -->
+                    <div class="mb-8">
+                        <h3 class="font-semibold mb-4 text-gray-900 dark:text-white">Price</h3>
+                        <div class="space-y-3">
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" name="price" value="0-5000" class="mr-3 rounded">
+                                <span class="text-sm text-gray-700 dark:text-gray-300">Under Rs. 5,000</span>
+                            </label>
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" name="price" value="5000-15000" class="mr-3 rounded">
+                                <span class="text-sm text-gray-700 dark:text-gray-300">Rs. 5,000 - Rs. 15,000</span>
+                            </label>
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" name="price" value="15000-25000" class="mr-3 rounded">
+                                <span class="text-sm text-gray-700 dark:text-gray-300">Rs. 15,000 - Rs. 25,000</span>
+                            </label>
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" name="price" value="25000+" class="mr-3 rounded">
+                                <span class="text-sm text-gray-700 dark:text-gray-300">Over Rs. 25,000</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Size -->
+                    <div class="mb-8">
+                        <h3 class="font-semibold mb-4 text-gray-900 dark:text-white">Size</h3>
+                        <div class="grid grid-cols-3 gap-2">
+                            <button class="size-filter border border-gray-300 dark:border-gray-600 rounded py-2 px-3 text-sm hover:border-accent transition-colors" data-size="6">6</button>
+                            <button class="size-filter border border-gray-300 dark:border-gray-600 rounded py-2 px-3 text-sm hover:border-accent transition-colors" data-size="7">7</button>
+                            <button class="size-filter border border-gray-300 dark:border-gray-600 rounded py-2 px-3 text-sm hover:border-accent transition-colors" data-size="8">8</button>
+                            <button class="size-filter border border-gray-300 dark:border-gray-600 rounded py-2 px-3 text-sm hover:border-accent transition-colors" data-size="9">9</button>
+                            <button class="size-filter border border-gray-300 dark:border-gray-600 rounded py-2 px-3 text-sm hover:border-accent transition-colors" data-size="10">10</button>
+                            <button class="size-filter border border-gray-300 dark:border-gray-600 rounded py-2 px-3 text-sm hover:border-accent transition-colors" data-size="11">11</button>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Products Grid -->
+            <main class="flex-1">
+                <!-- Sort and Results -->
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8">
+                    <div>
+                        <h1 class="text-3xl font-black mb-2 text-gray-900 dark:text-white">All Products</h1>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm" id="resultsCount">Loading products...</p>
+                    </div>
+                    <div class="flex items-center space-x-4 mt-4 sm:mt-0">
+                        <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Sort By</span>
+                        <select id="sortSelect" class="border border-gray-300 dark:border-gray-600 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent/20 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
+                            <option value="featured">Featured</option>
+                            <option value="newest">Newest</option>
+                            <option value="price-low">Price: Low-High</option>
+                            <option value="price-high">Price: High-Low</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Products Grid -->
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12" id="productsGrid">
+                    <!-- Products will be loaded here -->
+                </div>
+                
+                <!-- Load More -->
+                <div class="text-center">
+                    <button class="border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white px-8 py-3 rounded-full font-medium hover:border-accent hover:text-accent transition-colors" id="loadMore">
+                        Load More
+                    </button>
+                </div>
+            </main>
+        </div>
+    </div>
+
+   <!-- Footer -->
+    <footer class="bg-primary text-white py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <!-- Find a Store -->
+                <div>
+                    <h4 class="font-bold mb-6 text-lg">Feedbacks and Improvement</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Send Us Feedback</a></li>
+                       
+                    </ul>
+                </div>
+                
+                <!-- Get Help -->
+                <div>
+                    <h4 class="font-bold mb-6 text-lg">Get Help</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- About NepalKicks -->
+                <div>
+                    <h4 class="font-bold mb-6 text-lg">About NepalKicks</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="about.html" class="hover:text-white transition-colors">News</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-twitter text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-facebook text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-youtube text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-instagram text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+                <div class="flex flex-wrap items-center gap-6 mb-4 md:mb-0">
+                    <span>&copy; 2024 NepalKicks, Inc. All Rights Reserved</span>
+                    <a href="#" class="hover:text-white transition-colors">Guides</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Sale</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Use</a>
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                </div>
+                <div class="text-gray-400">
+                    <i class="fas fa-map-marker-alt mr-2"></i>
+                    Nepal
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="js/script.js" defer></script>
+<script type="module" src="js/shop.js" defer></script>
+</body>
+</html>

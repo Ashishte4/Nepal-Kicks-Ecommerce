@@ -1,0 +1,80 @@
+/* css/style.css */
+
+/* Universal Box-Sizing and Font */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+/* Scroll Behavior for smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Fade-In-Up Animation */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Custom Scrollbar Styles for Webkit (Chrome, Safari, Edge) */
+body::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color of the scrollbar track */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #ff6b35; /* Color of the scrollbar thumb (accent color) */
+    border-radius: 20px; /* Rounded corners for the thumb */
+    border: 2px solid #f1f1f1; /* Border around the thumb */
+}
+
+/* Custom Scrollbar Styles for Firefox */
+/* Note: scrollbar-color needs to be applied directly to the body */
+body {
+    scrollbar-width: thin; /* "auto" or "thin" */
+    scrollbar-color: #ff6b35 #f1f1f1; /* thumb color track color */
+}
+
+
+/* Dark Mode Scrollbar Overrides for Webkit */
+.dark body::-webkit-scrollbar-track {
+    background: #333333; /* Darker track for dark mode */
+}
+
+.dark body::-webkit-scrollbar-thumb {
+    background-color: #ff6b35; /* Accent color for dark mode thumb */
+    border-color: #333333; /* Darker border for dark mode thumb */
+}
+
+/* Dark Mode Scrollbar Overrides for Firefox */
+.dark body {
+    scrollbar-color: #ff6b35 #333333; /* Darker track for dark mode */
+}
+
+
+/* Product Card Hover Effects (Moved from index.html inline style) */
+.product-card {
+    transition: all 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* Dark mode specific hover shadow */
+.dark .product-card:hover {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - NepalKicks</title>
+    <script src="https://cdn.tailwindcss.com" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#111111',
+                        secondary: '#757575',
+                        accent: '#ff6b35',
+                        nepal: '#dc143c'
+                    }
+                   
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter bg-white dark:bg-gray-900 text-primary dark:text-white transition-colors duration-300">
+    <header class="sticky top-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b border-gray-100 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="hidden md:flex justify-between items-center py-2 px-6 text-xs border-b border-gray-100 dark:border-gray-800">
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="text-secondary hover:text-primary dark:hover:text-white transition-colors">Find a Store</a>
+                    <span class="text-gray-300">|</span>
+                    <a href="contact.html" class="text-secondary hover:text-primary dark:hover:text-white transition-colors">Help</a>
+                    <span class="text-gray-300">|</span>
+                    <a href="#" class="text-secondary hover:text-primary dark:hover:text-white transition-colors">Join Us</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button type="button" class="text-secondary hover:text-primary dark:hover:text-white transition-colors" id="authBtn">Sign In</button>
+                </div>
+            </div>
+            
+            <nav class="flex items-center justify-between px-6 py-4">
+                <div class="flex items-center space-x-12">
+                    <a href="index.html" class="flex items-center">
+                        <div class="text-2xl font-black">
+                            <span class="text-primary dark:text-white">Nepal</span><span class="text-accent">Kicks</span>
+                        </div>
+                    </a>
+                    
+                    <ul class="hidden lg:flex items-center space-x-8">
+                        <li><a href="shop.html?category=new" class="nav-link font-medium hover:text-secondary transition-colors">New & Featured</a></li>
+                        <li><a href="shop.html?category=men" class="nav-link font-medium hover:text-secondary transition-colors">Men</a></li>
+                        <li><a href="shop.html?category=women" class="nav-link font-medium hover:text-secondary transition-colors">Women</a></li>
+                        <li><a href="shop.html?category=kids" class="nav-link font-medium hover:text-secondary transition-colors">Kids</a></li>
+                        <li><a href="shop.html" class="nav-link font-medium hover:text-secondary transition-colors">Sale</a></li>
+                    </ul>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <div class="hidden md:block relative">
+                        <input type="text" placeholder="Search" 
+                               class="w-44 bg-gray-100 dark:bg-gray-800 border-0 rounded-full py-2 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:w-64 transition-all duration-300">
+                        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"></i>
+                    </div>
+                    <button type="button" class="relative p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors" id="wishlistBtn">
+                        <i class="far fa-heart text-xl"></i>
+                        <span class="wishlist-count absolute -top-1 -right-1 bg-accent text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </button>
+                    
+                    <a href="cart.html" class="relative p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors">
+                        <i class="fas fa-shopping-bag text-xl"></i>
+                        <span class="cart-count absolute -top-1 -right-1 bg-accent text-white text-xs rounded-full w-5 h-5 flex items-center justify-center" id="cartCount">0</span>
+                    </a>
+                    
+                    <button type="button" class="lg:hidden p-2" id="mobileMenuBtn">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </nav>
+            
+            <div class="lg:hidden hidden" id="mobileMenu">
+                <div class="px-6 py-4 border-t border-gray-100 dark:border-gray-800">
+                    <ul class="space-y-4">
+                        <li><a href="shop.html?category=new" class="block py-2 font-medium">New & Featured</a></li>
+                        <li><a href="shop.html?category=men" class="block py-2 font-medium">Men</a></li>
+                        <li><a href="shop.html?category=women" class="block py-2 font-medium">Women</a></li>
+                        <li><a href="shop.html?category=kids" class="block py-2 font-medium">Kids</a></li>
+                        <li><a href="shop.html" class="block py-2 font-medium">Sale</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <nav class="text-sm">
+                <a href="index.html" class="text-secondary hover:text-primary dark:hover:text-white">Home</a>
+                <span class="mx-2 text-gray-300">/</span>
+                <span class="text-primary dark:text-white font-medium">Bag</span>
+            </nav>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 py-12">
+        <h1 class="text-4xl font-black mb-12">Bag</h1>
+        
+        <div class="grid lg:grid-cols-3 gap-12">
+            <div class="lg:col-span-2">
+                <div id="cartItems" class="space-y-8">
+                    <p class="text-center text-secondary py-10">Loading your cart...</p> 
+                </div>
+                
+                <div id="emptyCart" class="text-center py-20 hidden">
+                    <i class="fas fa-shopping-bag text-6xl text-gray-300 mb-6"></i>
+                    <h2 class="text-2xl font-bold mb-4">Your bag is empty</h2>
+                    <p class="text-secondary mb-8">Once you add something to your bag - it will appear here. Ready to get started?</p>
+                    <a href="shop.html" class="bg-primary dark:bg-white dark:text-primary text-black px-8 py-3 rounded-full font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors">
+                        Get Started
+                    </a>
+                </div>
+            </div>
+            
+            <div class="lg:col-span-1">
+                <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 sticky top-32">
+                    <h2 class="text-xl font-bold mb-6">Summary</h2>
+                    
+                    <div class="space-y-4 mb-6">
+                        <div class="flex justify-between">
+                            <span>Subtotal</span>
+                            <span id="subtotal">Rs. 0</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Estimated Delivery & Handling</span>
+                            <span id="deliveryCost">Free</span>
+                        </div>
+                        <div class="border-t border-gray-200 dark:border-gray-700 pt-4">
+                            <div class="flex justify-between font-semibold text-lg">
+                                <span>Total</span>
+                                <span id="totalAmount">Rs. 0</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="button" class="w-full bg-primary dark:bg-white dark:text-primary text-black py-4 rounded-full font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors mb-4">
+                        Member Checkout
+                    </button>
+                    
+                    <div class="text-center text-sm text-secondary mb-4">
+                        <p>We accept:</p>
+                        <div class="flex justify-center space-x-2 mt-2">
+                            <i class="fab fa-cc-visa text-2xl"></i>
+                            <i class="fab fa-cc-mastercard text-2xl"></i>
+                            <i class="fab fa-cc-amex text-2xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<hr class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400"">
+    <footer class="bg-primary text-white py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <h4 class="font-bold mb-6 text-lg">Find A Store</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Send Us Feedback</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-6 text-lg">Get Help</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-6 text-lg">About NepalKicks</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="about.html" class="hover:text-white transition-colors">News</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-twitter text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-facebook text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-youtube text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-instagram text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+                <div class="flex flex-wrap items-center gap-6 mb-4 md:mb-0">
+                    <span>&copy; 2024 NepalKicks, Inc. All Rights Reserved</span>
+                    <a href="#" class="hover:text-white transition-colors">Guides</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Sale</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Use</a>
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                </div>
+                <div class="text-gray-400">
+                    <i class="fas fa-map-marker-alt mr-2"></i>
+                    Nepal
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="js/script.js" defer></script>
+<script type="module" src="js/cart.js" defer></script>
+</body>
+</html>

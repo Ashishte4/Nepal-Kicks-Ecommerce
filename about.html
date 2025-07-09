@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - NepalKicks</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#111111',
+                        secondary: '#757575',
+                        accent: '#ff6b35',
+                        nepal: '#dc143c'
+                    },
+                    spacing: {
+                        '18': '4.5rem',
+                        '88': '22rem',
+                        '128': '32rem'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter bg-white dark:bg-gray-900 text-primary dark:text-white transition-colors duration-300">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b border-gray-100 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <!-- Top Bar -->
+            <div class="hidden md:flex justify-between items-center py-2 px-6 text-xs border-b border-gray-100 dark:border-gray-800">
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="text-secondary hover:text-primary dark:hover:text-white transition-colors">Find a Store</a>
+                    <span class="text-gray-300">|</span>
+                    <a href="contact.html" class="text-secondary hover:text-primary dark:hover:text-white transition-colors">Help</a>
+                    <span class="text-gray-300">|</span>
+                    <a href="#" class="text-secondary hover:text-primary dark:hover:text-white transition-colors">Join Us</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="text-secondary hover:text-primary dark:hover:text-white transition-colors" id="authBtn">Sign In</button>
+                </div>
+            </div>
+            
+            <!-- Main Navigation -->
+            <nav class="flex items-center justify-between px-6 py-4">
+                <div class="flex items-center space-x-12">
+                    <!-- Logo -->
+                    <a href="index.html" class="flex items-center">
+                        <div class="text-2xl font-black">
+                            <span class="text-primary dark:text-white">Nepal</span><span class="text-accent">Kicks</span>
+                        </div>
+                    </a>
+                    
+                    <!-- Main Menu -->
+                    <ul class="hidden lg:flex items-center space-x-8">
+                        <li><a href="shop.html?category=new" class="nav-link font-medium hover:text-secondary transition-colors">New & Featured</a></li>
+                        <li><a href="shop.html?category=men" class="nav-link font-medium hover:text-secondary transition-colors">Men</a></li>
+                        <li><a href="shop.html?category=women" class="nav-link font-medium hover:text-secondary transition-colors">Women</a></li>
+                        <li><a href="shop.html?category=kids" class="nav-link font-medium hover:text-secondary transition-colors">Kids</a></li>
+                        <li><a href="shop.html" class="nav-link font-medium hover:text-secondary transition-colors">Sale</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Right Side -->
+                <div class="flex items-center space-x-4">
+                    <!-- Search -->
+                    <div class="hidden md:block relative">
+                        <input type="text" placeholder="Search" 
+                               class="w-44 bg-gray-100 dark:bg-gray-800 border-0 rounded-full py-2 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:w-64 transition-all duration-300">
+                        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"></i>
+                    </div>
+                    <!-- Icons -->
+                    <button class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors" id="wishlistBtn">
+                        <i class="far fa-heart text-xl"></i>
+                        <span class="wishlist-count hidden absolute -top-1 -right-1 bg-accent text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </button>
+                    
+                    <a href="cart.html" class="relative p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors">
+                        <i class="fas fa-shopping-bag text-xl"></i>
+                        <span class="cart-count absolute -top-1 -right-1 bg-accent text-white text-xs rounded-full w-5 h-5 flex items-center justify-center" id="cartCount">0</span>
+                    </a>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button class="lg:hidden p-2" id="mobileMenuBtn">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </nav>
+            
+            <!-- Mobile Menu -->
+            <div class="lg:hidden hidden" id="mobileMenu">
+                <div class="px-6 py-4 border-t border-gray-100 dark:border-gray-800">
+                    <ul class="space-y-4">
+                        <li><a href="shop.html?category=new" class="block py-2 font-medium">New & Featured</a></li>
+                        <li><a href="shop.html?category=men" class="block py-2 font-medium">Men</a></li>
+                        <li><a href="shop.html?category=women" class="block py-2 font-medium">Women</a></li>
+                        <li><a href="shop.html?category=kids" class="block py-2 font-medium">Kids</a></li>
+                        <li><a href="shop.html" class="block py-2 font-medium">Sale</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-96 flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="Images/About-us.jpg" 
+                 alt="About Hero" 
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/50"></div>
+        </div>
+        
+        <div class="relative z-10 text-center text-white max-w-4xl mx-auto px-6">
+            <h1 class="text-5xl md:text-7xl font-black mb-6">
+                ABOUT NEPALKICKS
+            </h1>
+            <p class="text-xl md:text-2xl font-light">
+                Born in Nepal, Built for the World
+            </p>
+        </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-black mb-8">Our Story</h2>
+                    <div class="space-y-6 text-secondary leading-relaxed">
+                        <p style="color:azure;">
+                            NepalKicks was born from a simple vision: to bring premium sneakers and streetwear 
+                            to Nepal's vibrant urban culture. Founded in 2020 in the bustling streets of Thamel, 
+                            Kathmandu, we started as a small passion project by sneaker enthusiasts who believed 
+                            that style shouldn't be limited by geography.
+                        
+                        <p style="color:aliceblue">
+                            What began as a small collection of carefully curated sneakers has grown into Nepal's 
+                            premier destination for authentic streetwear and premium footwear. We understand the 
+                            unique style needs of Nepal's youth - from navigating Kathmandu's diverse terrain to 
+                            expressing individuality through fashion.
+                        
+                        <p style="color: antiquewhite;">
+                            Every product in our collection is handpicked for quality, authenticity, and style. 
+                            We work directly with authorized distributors to ensure that every pair of sneakers 
+                            and every piece of apparel meets the highest standards our customers deserve.
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <img src="Images/Our-Story.jpg" 
+                         alt="Our Story" 
+                         class="w-full rounded-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Values -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-black mb-4">Our Mission</h2>
+                <p class="text-secondary text-lg max-w-3xl mx-auto">
+                    To democratize access to premium streetwear and sneakers in Nepal, 
+                    while celebrating and elevating local street culture.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-primary dark:bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-heart text-2xl text-white dark:text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Passion for Style</h3>
+                    <p class="text-secondary">
+                        We're passionate about bringing the latest trends and timeless classics 
+                        to Nepal's fashion-forward community.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-primary dark:bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-shield-alt text-2xl text-white dark:text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Authentic Products</h3>
+                    <p class="text-secondary">
+                        Every product is 100% authentic, sourced directly from authorized 
+                        distributors and verified for quality.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-primary dark:bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-users text-2xl text-white dark:text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Community First</h3>
+                    <p class="text-secondary">
+                        We're more than a store - we're part of Nepal's streetwear community, 
+                        supporting local culture and style.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-primary dark:bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-leaf text-2xl text-white dark:text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Sustainable Future</h3>
+                    <p class="text-secondary">
+                        We're committed to sustainable practices and supporting brands 
+                        that care about our planet's future.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-black mb-4">Meet Our Team</h2>
+                <p class="text-secondary text-lg">
+                    The passionate individuals behind NepalKicks
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-32 h-32 bg-gray-200 dark:bg-gray-700 rounded-full mx-auto mb-6 overflow-hidden">
+                        <img src="Images/Arjun Shrestha.jpg" 
+                             alt="Arjun Shrestha" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Arjun Shrestha</h3>
+                    <p class="text-secondary mb-4">Founder & CEO</p>
+                    <p class="text-sm text-secondary">
+                        Passionate about bringing global streetwear culture to Nepal's youth.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-32 h-32 bg-gray-200 dark:bg-gray-700 rounded-full mx-auto mb-6 overflow-hidden">
+                        <img src="Images/Priya Joshi.jpeg" 
+                             alt="Priya Gurung" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Priya Joshi</h3>
+                    <p class="text-secondary mb-4">Head of Design</p>
+                    <p class="text-sm text-secondary">
+                        Creative visionary with an eye for emerging trends and timeless style.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-32 h-32 bg-gray-200 dark:bg-gray-700 rounded-full mx-auto mb-6 overflow-hidden">
+                        <img src="Images/Anil Tamang.jpeg" 
+                             alt="Anil Tamang" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Anil Tamang</h3>
+                    <p class="text-secondary mb-4">Operations Manager</p>
+                    <p class="text-sm text-secondary">
+                        Ensures every customer receives authentic products with exceptional service.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <!-- Find a Store -->
+                <div>
+                    <h4 class="font-bold mb-6 text-lg">Feedbacks and Improvement</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Send Us Feedback</a></li>
+                       
+                    </ul>
+                </div>
+                
+                <!-- Get Help -->
+                <div>
+                    <h4 class="font-bold mb-6 text-lg">Get Help</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- About NepalKicks -->
+                <div>
+                    <h4 class="font-bold mb-6 text-lg">About NepalKicks</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="about.html" class="hover:text-white transition-colors">News</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Social -->
+                <div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-twitter text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-facebook text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-youtube text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-instagram text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+                <div class="flex flex-wrap items-center gap-6 mb-4 md:mb-0">
+                    <span>&copy; 2024 NepalKicks, Inc. All Rights Reserved</span>
+                    <a href="#" class="hover:text-white transition-colors">Guides</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Sale</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Use</a>
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                </div>
+                <div class="text-gray-400">
+                    <i class="fas fa-map-marker-alt mr-2"></i>
+                    Nepal
+                </div>
+            </div>
+        </div>
+    </footer>
+
+   <script type="module" src="js/script.js" defer></script>
+</body>
+</html>
